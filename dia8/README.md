@@ -4,28 +4,23 @@
 Se trabaja con una serie de cajas (nodos) en el espacio 3D, cada una con coordenadas X, Y, Z.  
 El objetivo es conectar pares de cajas mediante cuerdas de luz, siempre eligiendo los pares más cercanos.
 
-### Parte 1
-1. Se calculan todas las distancias euclídeas entre cajas.
-2. Se ordenan estos pares por distancia creciente.
-3. Se realizan las primeras 1000 conexiones.
-4. A través de un **Union-Find (estructura vista en clase)** se van uniendo componentes.
-5. Finalmente, se obtiene el tamaño de los tres componentes más grandes y se multiplica.
+## 1. Por qué hemos elegido este problema
+Nos llamó la atención que trabajaba con puntos en 3D en lugar de una rejilla 2D. También involucraba distancias y construcción automática de grafos, algo que no vemos tan a menudo.
 
-### Parte 2
-Se continúa conectando pares hasta que todo el conjunto forme un único componente.  
-El resultado final es el producto de las coordenadas X del último par conectado.
+## 2. Técnica o estructura de datos que se emplean
+Usamos un vector de puntos en 3D, cálculo de distancia euclidiana, construcción de listas de adyacencia y DFS para recorrer el grafo generado. También analizamos conexiones basadas en la cercanía entre puntos.
 
-## Técnica de clase utilizada
-- **Union-Find / Disjoint Set Union (DSU)** para gestionar componentes conectados.
-- **Divide y Vencerás**: la ordenación de distancias usa algoritmos tipo mergesort/quicksort.
-- **Complejidad**:
-  - Cálculo de distancias: O(n²)
-  - Ordenación: O(n² log n)
-  - Union-Find: casi O(1) por operación
+## 3. Descripción de la resolución del problema
+Primero almacenamos todos los puntos y calculamos las distancias entre ellos para identificar cuáles debían conectarse. Construimos un grafo donde cada arista representa cercanía entre dos puntos. Después usamos DFS para encontrar los componentes conectados y contarlos.
+
+## 4. Alternativas
+Se podrían usar otras estructuras avanzadas pero decidimos hacerlo como lo hemos hecho.
+
+## 5. Valoración personal
+Fue muy interesante ver cómo puntos en el espacio se agrupan solos en función de su cercanía. Nos ayudó a entender mejor cómo se aplican los grafos.
 
 ## Archivos incluidos
 - `dia8.1.c` — aproximación en C, parte 1.
 - `dia8.2.c` — aproximación en C, parte 2.
-- `dia8.cpp` — versión en C++ más completa.
 - `input.txt` — coordenadas de entrada.
 

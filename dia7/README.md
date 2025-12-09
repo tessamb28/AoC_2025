@@ -9,20 +9,20 @@ El rayo baja verticalmente y:
 - Un divisor genera dos nuevos rayos que continúan hacia izquierda y derecha
 - Los nuevos rayos continúan bajando hasta encontrar otro divisor o salir del mapa
 
-### Parte 1
-Se cuenta cuántas veces un divisor genera nuevas divisiones del rayo.
+## 1. Por qué hemos elegido este problema
+Elegimos este problema porque mezcla propagación de rayos, rejillas, bifurcaciones y conteo de caminos. Además, combina BFS, DFS y programación dinámica, técnicas muy usadas y que queríamos practicar.
 
-### Parte 2
-Cada división del rayo representa una separación de líneas temporales (many-worlds interpretation).  
-El objetivo es contar cuántos caminos distintos puede generar el rayo.
+## 2. Técnica o estructura de datos que se emplean
+La primera parte se resolvió con BFS, usando una cola y una matriz de visitados. La segunda parte se resolvió con DFS recursivo junto con memoización para evitar cálculos repetidos.
 
-## Técnica de clase utilizada
-- **Recorridos en grafos en rejilla**: el mapa funciona como un grafo 2D.
-- **Simulación de estados**: cada rayo es un estado dentro de la simulación.
-- **Estructuras de datos vistas en clase**:
-  - `queue` para BFS
-  - `set` para evitar duplicados
-- También se aplica **Divide y Vencerás** implícito al dividir el rayo en dos ramificaciones.
+## 3. Descripción de la resolución del problema
+En la primera parte, simulamos la trayectoria del rayo a través de la rejilla. Algunas casillas lo desvían o lo bloquean, así que usamos BFS para explorar todas las posibilidades sin repetir estados. En la segunda parte, cuando los rayos pueden dividirse, usamos DFS con programación dinámica para contar todas las rutas posibles hacia el objetivo sin recalcular estados ya conocidos.
+
+## 4. Alternativas
+No encontramos otra forma más eficiente que combinara claridad y buen rendimiento.
+
+## 5. Valoración personal
+Este problema nos enseñó a elegir entre BFS, DFS y DP según la necesidad del momento. Fue desafiante, pero aprendimos mucho sobre gestión de estados y eficiencia.
 
 ## Archivos
 - `dia7.cpp` — implementación de ambas partes.
